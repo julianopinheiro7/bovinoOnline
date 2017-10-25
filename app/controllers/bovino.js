@@ -1,5 +1,12 @@
 module.exports.listaBovino = function (application, req, res) {
-    res.render('bovino/listaBovino');
+    const connection = application.config.dbConnection();
+
+    const bovinoModel = new application.app.models.BovinoDAO(connection);
+
+    bovinoModel.getBovinos((err, result) => {
+        res.render('bovino/listaBovino', {bovinos: result});
+    });
+
 }
 
 module.exports.cadastraBovino = function (application, req, res) {

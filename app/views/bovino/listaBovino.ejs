@@ -6,7 +6,39 @@
 
 <body>
     <div class="container" style="margin-top: 25px;">
-        <a class="waves-effect waves-light btn" href="cadastraBovino">Cadastrar</a>
+        <div style="padding: 10px;">
+            <a class="waves-effect waves-light btn" href="cadastraBovino">Cadastrar</a>
+        </div>
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Raça</th>
+                    <th>Peso</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>Proprietário</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% if (bovinos.length > 0) {%>
+                    <% for(var i = 0; i < bovinos.length; i++) {%>
+                        <tr>
+                            <td><%=bovinos[i].id_bovino%></td>
+                            <td><%=bovinos[i].nome%></td>
+                            <td><%=bovinos[i].raca%></td>
+                            <td><%=bovinos[i].peso%></td>
+                            <td><%=bovinos[i].idade%></td>
+                            <td><%=bovinos[i].sexo%></td>
+                            <td><%=bovinos[i].proprietario%></td>
+                        </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
     </div>
 </body>
 
