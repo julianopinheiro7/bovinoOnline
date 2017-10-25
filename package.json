@@ -1,0 +1,32 @@
+{
+  "name": "bovino_online",
+  "version": "1.0.0",
+  "description": "Cadastro de Bovinos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianopinheiro7/bovinoOnline.git"
+  },
+  "keywords": [
+    "boi",
+    "node",
+    "ejs"
+  ],
+  "author": "Juliano Pinheiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianopinheiro7/bovinoOnline/issues"
+  },
+  "homepage": "https://github.com/julianopinheiro7/bovinoOnline#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-validator": "^4.2.1",
+    "mysql": "^2.15.0"
+  }
+}
