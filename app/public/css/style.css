@@ -6,3 +6,13 @@
     position: relative;
     top: 180px;   
 }
+
+.edit:hover {
+     background-color: #ccc;
+     color: #26a69a;
+}
+
+.delete:hover {
+    background-color: #ccc;
+    color: red;
+}
