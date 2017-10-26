@@ -63,9 +63,9 @@
                                     <div class="input-field col s6">
                                         <select name="proprietario">
                                             <option value="" disabled selected>Selecione</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                            <% for(var i = 0; i < selectProprietarios.length; i++) { %>
+                                                <option value="<%=selectProprietarios[i].id_proprietario%>"><%=selectProprietarios[i].nome%></option>
+                                            <% } %>
                                         </select>
                                         <label>Proprietário</label>
                                     </div>

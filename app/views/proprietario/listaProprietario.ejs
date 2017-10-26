@@ -3,6 +3,7 @@
 <head>
     <link href="css/materialize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -42,6 +43,8 @@
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>Endereço</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
 
@@ -73,9 +76,19 @@
                             <td>
                                 <%=proprietarios[i].endereco%>
                             </td>
+                            <td>
+                                <a class="btn-flat waves-effect waves-light" href="cadastraProprietario?id=<%=proprietarios[i].id_proprietario%>" style="padding: 0px 1rem;">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn-flat waves-effect waves-light" style="padding: 0px 1rem;">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </td>
                         </tr>
-                        <% } %>
-                            <% } %>
+                    <% } %>
+                <% } %>
             </tbody>
         </table>
     </div>
