@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <script src="js/jquery-2.2.1.js"></script>
+    <script src="js/materialize.js"></script>
+    <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">
+                <img id="imgLogo" src="img/logo.png">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="listaBovino" class="waves-effect waves-light btn-flat">Bovinos</a>
+                    <a href="listaProprietario" class="waves-effect waves-light btn-flat">Proprietários</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 20px;">
+
+        <%if(sucess == 'T') {%>
+            <div class="card-panel teal lighten-3 center">
+                <b class="white-text">Proprietário cadastrado com sucesso!</b>
+            </div>
+            <% } %>
+                <%if(sucess == 'F') {%>
+                    <div class="card-panel red lighten-1 center">
+                        <b class="white-text">Ocorreu um erro ao cadastrar, tente novamente!</b>
+                    </div>
+                    <% } %>
+
+                        <h5>
+                            <b>Cadastro de Proprietário</b>
+                        </h5>
+                        <div class="row">
+                            <form class="col s12" action="/proprietario/cadastrar" method="post">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" name="nome" type="text" class="validate">
+                                        <label for="first_name">Nome do Proprietário</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" name="cpf" type="text" class="validate">
+                                        <label for="last_name">CPF</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="first_name" name="ddd" type="text" class="validate">
+                                        <label for="first_name">DDD</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="last_name" name="celular" type="text" class="validate">
+                                        <label for="last_name">Celular</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" name="cidade" type="text" class="validate">
+                                        <label for="first_name">Cidade</label>
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <input id="last_name" name="estado" type="text" class="validate">
+                                        <label for="last_name">Estado</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" name="endereco" type="text" class="validate">
+                                        <label for="first_name">Endereço</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+                                <a href="/listaProprietario" class="waves-effect waves-light btn">Listar</a>
+                            </form>
+
+                        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">
+                <img id="imgLogo" src="img/logo.png">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="listaBovino" class="waves-effect waves-light btn-flat">Bovinos</a>
+                    <a href="listaProprietario" class="waves-effect waves-light btn-flat">Proprietários</a>
+                </li>
+            </ul>
+            <div style="padding: 15px; margin-left: 220px;">
+                <a class="waves-effect waves-light btn-flat" href="cadastraProprietario">
+                    </i>Cadastrar</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 25px;">
+
+        <h5>
+            <b>Lista de Proprietários</b>
+        </h5>
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>DDD</th>
+                    <th>Celular</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Endereço</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% if (proprietarios.length > 0) {%>
+                    <% for(var i = 0; i < proprietarios.length; i++) {%>
+                        <tr>
+                            <td>
+                                <%=proprietarios[i].id_proprietario%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].nome%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].cpf%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].ddd%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].celular%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].cidade%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].estado%>
+                            </td>
+                            <td>
+                                <%=proprietarios[i].endereco%>
+                            </td>
+                        </tr>
+                        <% } %>
+                            <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

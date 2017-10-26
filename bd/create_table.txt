@@ -1,0 +1,30 @@
+
+create database BovinoOnline;
+
+create table bovino(
+id_bovino int not null primary key auto_increment,
+nome varchar(100),
+raca varchar(100),
+peso numeric,
+idade int,
+proprietario int,
+sexo varchar(1),
+foreign key (proprietario) references proprietario (id_proprietario)
+);
+
+create table proprietario(
+id_proprietario int not null primary key auto_increment,
+nome varchar(100),
+cpf bigint,
+ddd numeric,
+celular bigint,
+cidade varchar(100),
+estado varchar(2),
+endereco varchar(100)
+);
+
+INSERT INTO proprietario(nome, cpf, ddd, celular, cidade, estado, endereco)
+VALUES ('Kairo Lamarca', 45767899909, 16, 991783456, 'Franca', 'SP', 'Rodovia Castelo Branco, km 53'),
+       ('Juliano Pinheiro', 34456678801, 16, 991771088, 'Franca', 'SP', 'Rodovia Bitencourt, km 107'),
+       ('Maycon Picssa', 14488856602, 34, 991221545, 'Uberlandia', 'MG', 'Rodovia Anhanguera, km 488'),
+       ('Guilherme Rodrigues', 47799953308, 35, 992031100, 'Ibiraci', 'MG', 'Rodovia João Traficante, km 225');

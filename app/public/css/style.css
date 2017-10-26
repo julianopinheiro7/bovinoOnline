@@ -1,3 +1,8 @@
 #imgLogo {
     width: 205px;
 }
+
+#background {
+    position: relative;
+    top: 180px;   
+}
