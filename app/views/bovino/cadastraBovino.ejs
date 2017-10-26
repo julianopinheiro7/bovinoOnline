@@ -4,57 +4,87 @@
     <script src="js/jquery-2.2.1.js"></script>
     <script src="js/materialize.js"></script>
     <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="container" style="padding: 20px;">
-        <h4>Cadastro de Bovino</h4>
-        <div class="row">
-            <form class="col s12" action="/bovino/cadastrar" method="post">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" name="nome" type="text" class="validate">
-                        <label for="first_name">Nome do Bovino</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" name="raca" type="text" class="validate">
-                        <label for="last_name">Raça</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" name="peso" type="text" class="validate">
-                        <label for="first_name">Peso (Arroba)</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" name="idade" type="text" class="validate">
-                        <label for="last_name">Idade (meses)</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <select name="proprietario">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Proprietário</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <select name="sexo">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="F">Fêmea</option>
-                            <option value="M">Macho</option>
-                        </select>
-                        <label>Sexo</label>
-                    </div>
-                </div>
-                <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
-            </form>
-           
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">
+                <img id="imgLogo" src="img/logo.png">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="listaBovino" class="waves-effect waves-light btn-flat">Bovinos</a>
+                    <a href="listaProprietario" class="waves-effect waves-light btn-flat">Proprietários</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+
+    <div class="container" style="padding: 20px;">
+
+        <%if(sucess == 'T') {%>
+            <div class="card-panel teal lighten-3 center">
+                <b class="white-text">Bovino cadastrado com sucesso!</b>
+            </div>
+            <% } %>
+                <%if(sucess == 'F') {%>
+                    <div class="card-panel red lighten-1 center">
+                        <b class="white-text">Ocorreu um erro ao cadastrar, tente novamente!</b>
+                    </div>
+                    <% } %>
+
+                        <h5>
+                            <b>Cadastro de Bovinos</b>
+                        </h5>
+                        <div class="row">
+                            <form class="col s12" action="/bovino/cadastrar" method="post">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" name="nome" type="text" class="validate">
+                                        <label for="first_name">Nome do Bovino</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" name="raca" type="text" class="validate">
+                                        <label for="last_name">Raça</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" name="peso" type="text" class="validate">
+                                        <label for="first_name">Peso (Arroba)</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" name="idade" type="text" class="validate">
+                                        <label for="last_name">Idade (meses)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <select name="proprietario">
+                                            <option value="" disabled selected>Selecione</option>
+                                            <option value="1">Option 1</option>
+                                            <option value="2">Option 2</option>
+                                            <option value="3">Option 3</option>
+                                        </select>
+                                        <label>Proprietário</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <select name="sexo">
+                                            <option value="" disabled selected>Selecione</option>
+                                            <option value="F">Fêmea</option>
+                                            <option value="M">Macho</option>
+                                        </select>
+                                        <label>Sexo</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+                                <a href="/listaBovino" class="waves-effect waves-light btn">Listar</a>
+                            </form>
+
+                        </div>
     </div>
 
     <script>

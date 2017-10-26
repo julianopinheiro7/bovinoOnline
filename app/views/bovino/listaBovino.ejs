@@ -2,13 +2,34 @@
 
 <head>
     <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container" style="margin-top: 25px;">
-        <div style="padding: 10px;">
-            <a class="waves-effect waves-light btn" href="cadastraBovino">Cadastrar</a>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">
+                <img id="imgLogo" src="img/logo.png">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="listaBovino" class="waves-effect waves-light btn-flat">Bovinos</a>
+                    <a href="listaProprietario" class="waves-effect waves-light btn-flat">Proprietários</a>
+                </li>
+            </ul>
+            <div style="padding: 15px; margin-left: 220px;">
+                <a class="waves-effect waves-light btn-flat" href="cadastraBovino"></i>Cadastrar</a>
+            </div>
         </div>
+    </nav>
+
+    <div class="container" style="margin-top: 25px;">
+
+        <h5>
+            <b>Lista de Bovinos</b>
+        </h5>
 
         <table class="striped">
             <thead>
@@ -27,16 +48,30 @@
                 <% if (bovinos.length > 0) {%>
                     <% for(var i = 0; i < bovinos.length; i++) {%>
                         <tr>
-                            <td><%=bovinos[i].id_bovino%></td>
-                            <td><%=bovinos[i].nome%></td>
-                            <td><%=bovinos[i].raca%></td>
-                            <td><%=bovinos[i].peso%></td>
-                            <td><%=bovinos[i].idade%></td>
-                            <td><%=bovinos[i].sexo%></td>
-                            <td><%=bovinos[i].proprietario%></td>
+                            <td>
+                                <%=bovinos[i].id_bovino%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].nome%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].raca%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].peso%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].idade%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].sexo%>
+                            </td>
+                            <td>
+                                <%=bovinos[i].proprietario%>
+                            </td>
                         </tr>
-                    <% } %>
-                <% } %>
+                        <% } %>
+                            <% } %>
             </tbody>
         </table>
     </div>

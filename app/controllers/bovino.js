@@ -10,7 +10,13 @@ module.exports.listaBovino = function (application, req, res) {
 }
 
 module.exports.cadastraBovino = function (application, req, res) {
-    res.render('bovino/cadastraBovino');
+    let msg = '';
+
+    if(req.query.msg != ''){
+        msg = req.query.msg;
+    }
+
+    res.render('bovino/cadastraBovino', {sucess: msg});
 }
 
 module.exports.cadastrar = function (application, req, res) {
@@ -21,6 +27,12 @@ module.exports.cadastrar = function (application, req, res) {
     const bovinoModel = new application.app.models.BovinoDAO(connection);
 
     bovinoModel.postBovino(bovino, (err, result) => {
-        res.redirect('/cadastraBovino');
+        if(err != null){
+            res.redirect('/cadastraBovino?msg=F');
+        }
+        else{
+            res.redirect('/cadastraBovino?msg=T');
+        }
+       
     });
 }
