@@ -30,61 +30,79 @@
                 <b class="white-text">Dados gravados com sucesso!</b>
             </div>
             <% } %>
-            <%if(sucess == 'F') {%>
-                <div class="card-panel red lighten-1 center">
-                    <b class="white-text">Ocorreu um erro ao cadastrar, tente novamente!</b>
-                </div>
-            <% } %>
+                <%if(sucess == 'F') {%>
+                    <div class="card-panel red lighten-1 center">
+                        <b class="white-text">Ocorreu um erro ao cadastrar, tente novamente!</b>
+                    </div>
+                    <% } %>
 
-        <h5>
-            <b>Cadastro de Proprietário</b>
-        </h5>
-        <div class="row">
-            <form class="col s12" action="/proprietario/cadastrar" method="post">
-                <div class="row">
-                    <input type="hidden" name="id_proprietario" value="<%=proprietario.id_proprietario%>">
-                    <div class="input-field col s6">
-                        <input id="first_name" value="<%=proprietario.nome%>" name="nome" type="text" class="validate">
-                        <label for="first_name">Nome do Proprietário</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" value="<%=proprietario.cpf%>" name="cpf" type="text" class="validate">
-                        <label for="last_name">CPF</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="first_name" value="<%=proprietario.ddd%>" name="ddd" type="text" class="validate">
-                        <label for="first_name">DDD</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="last_name" value="<%=proprietario.celular%>" name="celular" type="text" class="validate">
-                        <label for="last_name">Celular</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" value="<%=proprietario.cidade%>" name="cidade" type="text" class="validate">
-                        <label for="first_name">Cidade</label>
-                    </div>
-                    <div class="input-field col s2">
-                        <input id="last_name" value="<%=proprietario.estado%>" name="estado" type="text" class="validate">
-                        <label for="last_name">Estado</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" value="<%=proprietario.endereco%>" name="endereco" type="text" class="validate">
-                        <label for="first_name">Endereço</label>
-                    </div>
-                </div>
+                        <h5>
+                            <b>Cadastro de Proprietário</b>
+                        </h5>
+                        <div class="row">
+                            <form class="col s12" action="/proprietario/cadastrar" method="post">
+                                <div class="row">
+                                    <input type="hidden" name="id_proprietario" value="<%=proprietario.id_proprietario%>">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" value="<%=proprietario.nome%>" name="nome" type="text" class="validate">
+                                        <label for="first_name">Nome do Proprietário</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" value="<%=proprietario.cpf%>" name="cpf" type="text" class="validate">
+                                        <label for="last_name">CPF</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="first_name" value="<%=proprietario.ddd%>" name="ddd" type="text" class="validate">
+                                        <label for="first_name">DDD</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="last_name" value="<%=proprietario.celular%>" name="celular" type="text" class="validate">
+                                        <label for="last_name">Celular</label>
+                                    </div>
+                                </div>
 
-                <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
-                <a href="/listaProprietario" class="waves-effect waves-light btn">Listar</a>
-            </form>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" value="<%=proprietario.cidade%>" name="cidade" type="text" class="validate">
+                                        <label for="first_name">Cidade</label>
+                                    </div>
 
-        </div>
+                                    <div class="input-field col s2">
+                                        <select name="estado">
+                                            <option value="">Selecione</option>                      
+                                            <% 
+                                                let ufs = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+                                                for(var i = 0; i < ufs.length; i++) {
+                                                    let selected = ( proprietario.estado == ufs[i] ) ? "selected" : "";
+                                            %>
+                                                <option value="<%=ufs[i]%>" <%=selected %> ><%=ufs[i]%></option>
+                                            <% } %>
+                                        </select>
+                                        <label>Estado</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" value="<%=proprietario.endereco%>" name="endereco" type="text" class="validate">
+                                        <label for="first_name">Endereço</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+                                <a href="/listaProprietario" class="waves-effect waves-light btn">Listar</a>
+                            </form>
+
+                        </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 
 </body>
 

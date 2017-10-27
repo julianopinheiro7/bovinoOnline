@@ -4,6 +4,16 @@
     <link href="css/materialize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery-2.2.1.js"></script>
+    <script src="js/jquery.mask.js"/></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {	
+            $(".cpf").mask("999.999.999-99");
+            $(".celular").mask("99999-9999");
+        });
+    </script>
+
 </head>
 
 <body>
@@ -59,13 +69,13 @@
                                 <%=proprietarios[i].nome%>
                             </td>
                             <td>
-                                <%=proprietarios[i].cpf%>
+                                <span class="cpf"><%=proprietarios[i].cpf%></span>
                             </td>
                             <td>
-                                <%=proprietarios[i].ddd%>
+                                (<%=proprietarios[i].ddd%>)
                             </td>
                             <td>
-                                <%=proprietarios[i].celular%>
+                                <span class="celular"><%=proprietarios[i].celular%></span>                               
                             </td>
                             <td>
                                 <%=proprietarios[i].cidade%>
@@ -87,8 +97,8 @@
                                 </a>
                             </td>
                         </tr>
-                    <% } %>
-                <% } %>
+                        <% } %>
+                            <% } %>
             </tbody>
         </table>
     </div>
