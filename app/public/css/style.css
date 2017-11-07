@@ -2,6 +2,20 @@
     width: 205px;
 }
 
+#logoCow {
+    position: relative;
+    vertical-align: sub;
+    right: 10px;
+}
+
+
+#logoProp {
+    position: relative;
+    vertical-align: sub;
+    right: 10px;
+}
+
+
 #background {
     position: relative;
     top: 180px;   
