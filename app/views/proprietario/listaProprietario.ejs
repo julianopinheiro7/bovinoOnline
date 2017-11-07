@@ -38,6 +38,22 @@
 
     <div class="container" style="margin-top: 25px;">
 
+        <%if(sucess == 'T') {%>
+            <div class="card-panel teal lighten-3 center">
+                <b class="white-text">Registro excluído com sucesso!</b>
+            </div>
+        <% } %>
+        <%if(sucess == 'F') {%>
+            <div class="card-panel red lighten-1 center">
+                <b class="white-text">Ocorreu um erro ao excluir, tente novamente!</b>
+            </div>
+        <% } %>
+        <%if(sucess == 'B') {%>
+            <div class="card-panel red lighten-1 center">
+                <b class="white-text">Não é possível excluir um proprietário que tem bovinos cadastrados!</b>
+            </div>
+        <% } %>
+
         <h5>
             <b>Lista de Proprietários</b>
         </h5>
@@ -92,7 +108,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a class="btn-flat waves-effect waves-light delete" style="padding: 0px 1rem;">
+                                <a class="btn-flat waves-effect waves-light delete" href="excluiProprietario?id=<%=proprietarios[i].id_proprietario%>" style="padding: 0px 1rem;">
                                     <i class="material-icons">delete</i>
                                 </a>
                             </td>

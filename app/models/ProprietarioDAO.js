@@ -26,6 +26,10 @@ ProprietarioDAO.prototype.getProprietariosSelect = function(callback){
     this._connection.query('select id_proprietario, nome from proprietario', callback);
 }
 
+ProprietarioDAO.prototype.deleteProprietario = function(id_proprietario, callback){
+    this._connection.query('delete from proprietario where id_proprietario = ?', id_proprietario, callback);
+}
+
 module.exports = function(){
     return ProprietarioDAO;
 }
