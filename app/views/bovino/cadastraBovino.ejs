@@ -27,7 +27,7 @@
 
         <%if(sucess == 'T') {%>
             <div class="card-panel teal lighten-3 center">
-                <b class="white-text">Bovino cadastrado com sucesso!</b>
+                <b class="white-text">Dados gravados com sucesso!</b>
             </div>
             <% } %>
                 <%if(sucess == 'F') {%>
@@ -40,40 +40,55 @@
                         <div class="row">
                             <form class="col s12" action="/bovino/cadastrar" method="post">
                                 <div class="row">
+                                    <input type="hidden" name="id_bovino" value="<%=bovino.id_bovino%>">
                                     <div class="input-field col s6">
-                                        <input id="first_name" name="nome" type="text" class="validate">
+                                        <input id="first_name" value="<%=bovino.nome%>" name="nome" type="text" class="validate">
                                         <label for="first_name">Nome do Bovino</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input id="last_name" name="raca" type="text" class="validate">
+                                        <input id="last_name" value="<%=bovino.raca%>" name="raca" type="text" class="validate">
                                         <label for="last_name">Raça</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" name="peso" type="text" class="validate">
+                                        <input id="first_name" value="<%=bovino.peso%>" name="peso" type="text" class="validate">
                                         <label for="first_name">Peso (Arroba)</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input id="last_name" name="idade" type="text" class="validate">
+                                        <input id="last_name" value="<%=bovino.idade%>" name="idade" type="text" class="validate">
                                         <label for="last_name">Idade (meses)</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <select name="proprietario">
-                                            <option value="" disabled selected>Selecione</option>
-                                            <% for(var i = 0; i < selectProprietarios.length; i++) { %>
-                                                <option value="<%=selectProprietarios[i].id_proprietario%>"><%=selectProprietarios[i].nome%></option>
+                                            <option value="">Selecione</option>
+                                            <% 
+                                                for(var i = 0; i < selectProprietarios.length; i++) { 
+                                                    let selected = ( bovino.proprietario == selectProprietarios[i].id_proprietario ) ? "selected" : "";
+                                            %>
+                                                <option value="<%=selectProprietarios[i].id_proprietario%>" <%=selected %> ><%=selectProprietarios[i].nome%></option>
                                             <% } %>
                                         </select>
                                         <label>Proprietário</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <select name="sexo">
+                                        <!-- <select name="sexo">
                                             <option value="" disabled selected>Selecione</option>
                                             <option value="F">Fêmea</option>
                                             <option value="M">Macho</option>
+                                        </select> -->
+                                        <select name="sexo">
+                                            <option value="">Selecione</option>                      
+                                            <% 
+                                                let sexos = ['F','M'];
+                                                for(var i = 0; i < sexos.length; i++) {
+                                                    let selected = ( bovino.sexo == sexos[i] ) ? "selected" : "";
+                                                    var nomeSexo = ( sexos[i] == 'F' ) ? "Fêmea" : "Macho";
+                                            %>
+                                                <option value="<%=sexos[i]%>" <%=selected %> ><%=nomeSexo%></option>
+                                            <% } %>
                                         </select>
                                         <label>Sexo</label>
                                     </div>

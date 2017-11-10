@@ -10,4 +10,8 @@ module.exports = function (application) {
     application.post('/bovino/cadastrar', (req, res) => {
         application.app.controllers.bovino.cadastrar(application, req, res);
     });
+
+    application.get('/excluirBovino', (req, res) => {
+        application.app.controllers.bovino.excluirBovino(application, req, res);
+    });
 }
